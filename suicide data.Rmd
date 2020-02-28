@@ -1,0 +1,49 @@
+---
+title: "data"
+author: "Racquelle Sabrina Mangahas"
+date: "27/02/2020"
+output: html_document
+---
+
+```{r fake-load-libraries, eval=FALSE}
+library(tidyverse)
+library(here)
+```
+
+```{r}
+suiciderates<- read.table(here("suiciderates.csv"),sep=" ")
+```
+
+Peek at dataset:
+```{r}
+suiciderates
+```
+
+# Exploratory Data Analysis
+
+How many rows?
+```{r count-rows}
+nrow(suiciderates)
+```
+
+How many columns?
+```{r count-cols}
+ncol(suiciderates)
+```
+
+Summary of suiciderates dataset:
+```{r}
+summary(suiciderates)
+```
+
+Out of entire dataset (27820 observations of 12 variables), what % are NAs?
+```{r}
+sum(is.na(suiciderates))/27820*12
+```
+
+For column HDI for year, what % are NAs?
+```{r}
+sum(is.na(suiciderates$HDI.for.year))/27820
+```
+
+
