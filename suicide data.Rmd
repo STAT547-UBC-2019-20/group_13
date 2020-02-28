@@ -1,33 +1,54 @@
 ---
-title: "data"
-author: "Racquelle Sabrina Mangahas"
+title: 'Milestone 1 '
+author: 'Racquelle & Farnaz '
 date: "27/02/2020"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ```{r fake-load-libraries, eval=FALSE}
 library(tidyverse)
+library(magrittr)
 library(here)
 ```
 
+```{r allow errors, echo = FALSE}
+knitr::opts_chunk$set(error = TRUE, warning = FALSE)
+```
+
+# Task 1: Choosing a dataset
+
+We found the dataset at: https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016/data
+
+# Task 2: Project Proposal & EDA
+
+#### 2.1: Introduce and describe your dataset
+
+This dataset 
+
+#### 2.2: Load your dataset
+
 ```{r}
-suiciderates<- read.table(here("suiciderates.csv"),sep=" ")
+suiciderates<- read.table(("suiciderates.csv"),sep=" ")
 ```
 
 Peek at dataset:
 ```{r}
-suiciderates
+DT::datatable(suiciderates)
 ```
 
-# Exploratory Data Analysis
+#### 2.3: Explore your dataset
+
+> Exploratory Data Analysis of 'suiciderates'
 
 How many rows?
-```{r count-rows}
+```{r}
 nrow(suiciderates)
 ```
 
 How many columns?
-```{r count-cols}
+```{r}
 ncol(suiciderates)
 ```
 
@@ -36,14 +57,52 @@ Summary of suiciderates dataset:
 summary(suiciderates)
 ```
 
+> Figuring out NAs in 'suiciderates' dataset:
+
 Out of entire dataset (27820 observations of 12 variables), what % are NAs?
 ```{r}
 sum(is.na(suiciderates))/27820*12
 ```
 
-For column HDI for year, what % are NAs?
+For column Human Development Index (HDI) for year, what % are NAs?
 ```{r}
 sum(is.na(suiciderates$HDI.for.year))/27820
 ```
+Since there are 8.39% of NAs in the dataset, and the variable 'HDI for year' consists of 70% NAs, we have decided to drop that variable in our analyses, since 'HDI for year' values wouldn't be significant to factor in when looking at suicide rates due to lack of data.
 
+> Removing NAs and creating refined 'suicideratesnew' dataset:
 
+Next, I will select for only the variables I am interested in, thus removing 'HDI for year'. 
+
+```{r}
+suicideratesnew <- suiciderates %>% 
+  select(country, year, sex, age, suicides_no, population, suicides.100k.pop, country.year, 
+         gdp_for_year...., gdp_per_capita....,generation)
+```
+
+```{r}
+DT::datatable(suicideratesnew)
+```
+
+I will now check to see how many NAs are still remaining in this dataset:
+```{r}
+sum(is.na(suicideratesnew))/27820*11
+```
+There are now 0% of NAs in the new dataset, further exemplifying that 'HDI for year' contained all the NAs.
+
+> Exploratory Data Analysis of 'suicideratesnew':
+
+How many rows?
+```{r}
+nrow(suicideratesnew)
+```
+
+How many columns?
+```{r}
+ncol(suicideratesnew)
+```
+
+Summary of suiciderates dataset:
+```{r}
+summary(suicideratesnew)
+```
