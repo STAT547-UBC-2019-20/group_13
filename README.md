@@ -1,5 +1,5 @@
 # group_13
-:sparkles: Farnaz and Racquelle :sparkles: 
+:star: Farnaz and Racquelle :star: 
 
 ## Suicide Rates Overview 1985 to 2016
 
