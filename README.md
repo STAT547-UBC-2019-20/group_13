@@ -19,4 +19,4 @@ World Health Organization. (2018). Suicide prevention. Retrieved from http://www
 
 ### Data Description 
 
-Can be found at: https://github.com/STAT547-UBC-2019-20/group_13/blob/master/suiciderates.csv
+Can be found (here) [https://github.com/STAT547-UBC-2019-20/group_13/blob/master/suiciderates.csv]
