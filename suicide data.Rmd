@@ -141,7 +141,7 @@ gen_suicides %>%
   theme(plot.title = element_text(hjust = 0.5))
 ```
 
-In the second plot, we look at how suicide rates have changed over the years particularly in Canada, and see if there is a trend. 
+In the second plot, we look at how suicide rates have changed over the years, particularly in Canada, and see if there is a trend. 
 
 ```{r}
 canada_suicides <- suicideratesnew %>% 
