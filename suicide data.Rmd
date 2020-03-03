@@ -11,6 +11,7 @@ output:
 library(tidyverse)
 library(magrittr)
 library(here)
+library(ggplot2)
 ```
 
 ```{r allow errors, echo = FALSE}
@@ -25,7 +26,17 @@ We found the dataset at: https://www.kaggle.com/russellyates88/suicide-rates-ove
 
 #### 2.1: Introduce and describe your dataset
 
-This dataset 
+This compiled dataset pulled from four other datasets linked by time and place was built to find signals correlated to increased suicide rates among different cohorts globally, across the socio-economic spectrum. The inspiration for this study was to prevent suicide. This data set includes 11 columns and provides information about country, year, sex, age group, count of suicides, population, suicide rate, country-year composite key, gdp_for_year, gdp_per_capita, generation (based on age grouping average).
+
+The references for this study are:
+
+United Nations Development Program. (2018). Human development index (HDI). Retrieved from http://hdr.undp.org/en/indicators/137506
+
+World Bank. (2018). World development indicators: GDP (current US$) by country:1985 to 2016. Retrieved from http://databank.worldbank.org/data/source/world-development-indicators#
+
+[Szamil]. (2017). Suicide in the Twenty-First Century [dataset]. Retrieved from https://www.kaggle.com/szamil/suicide-in-the-twenty-first-century/notebook
+
+World Health Organization. (2018). Suicide prevention. Retrieved from http://www.who.int/mental_health/suicide-prevention/en/
 
 #### 2.2: Load your dataset
 
@@ -102,7 +113,76 @@ How many columns?
 ncol(suicideratesnew)
 ```
 
-Summary of suiciderates dataset:
+Summary of suicideratesnew dataset:
 ```{r}
 summary(suicideratesnew)
 ```
+
+> Plots
+
+In this first plot, we will look at how suicides may differ between generations, and within each one, the proportion of male versus female. The generations are as follows: Silent, Generation X, G.I. Generation,  Boomers, Generation Z and Millenials. 
+
+```{r}
+gen_suicides <- suicideratesnew %>% 
+  group_by(generation, sex) %>% 
+  summarise("mean_suicides"=mean(suicides_no)) 
+
+DT::datatable(gen_suicides)
+```
+
+```{r, fig.width = 15, fig.height = 10}
+gen_suicides %>% 
+  ggplot() +
+  geom_col(aes(x=fct_reorder(generation, mean_suicides),y=mean_suicides, fill=generation)) +
+  xlab("Generation") +
+  ylab("Mean # of suicides") +
+  theme_minimal() +
+  coord_flip() + 
+  ggtitle("Average number of suicides globally across generations (1985-2016)") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+In the second plot, we look at how suicide rates have changed over the years particularly in Canada, and see if there is a trend. 
+
+```{r}
+canada_suicides <- suicideratesnew %>% 
+  filter(country== 'Canada') %>% 
+  group_by(year) %>% 
+  summarise("sum_suicides"=sum(suicides_no))
+
+DT::datatable(canada_suicides)
+```
+
+```{r, fig.width = 15, fig.height = 10}
+canada_suicides %>% 
+  ggplot() +
+  geom_line(aes(x=year, y=sum_suicides)) +
+  xlab("Year") +
+  ylab("Sum of suicides") +
+  theme_minimal() +
+  ggtitle("Number of suicides in Canada (1985-2016)") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+Lastly, we will see the distribution of suicides between sexes within the entire dataset. 
+
+```{r, fig.width = 15, fig.height = 20}
+suicideratesnew %>% 
+  ggplot() +
+  geom_violin(aes(x=sex, y= suicides_no, fill=sex)) +
+  xlab("Sex") +
+  ylab("Number of suicides") +
+  theme_minimal() +
+  ggtitle("Distribution of suicides between sexes, globally (1985-2016)") +
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+#### Research question & plan of action 
+
+> Research Question
+
+Between 1985-2016, how did suicide rates differ between sexes and generations, and is there a significant correlation with the amount of GDP per capita for each country?
+
+With our research question, we are interested in the suicide rates among different generations. Later, we will perform a linear regression analysis and plot the relevant variables (variables of interest) with a regression line after we come to a conclusion that there is a relationship between these variables. 
+
+
