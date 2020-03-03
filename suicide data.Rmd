@@ -79,7 +79,7 @@ For column Human Development Index (HDI) for year, what % are NAs?
 ```{r}
 sum(is.na(suiciderates$HDI.for.year))/27820
 ```
-Since there are 8.39% of NAs in the dataset, and the variable 'HDI for year' consists of 70% NAs, we have decided to drop that variable in our analyses, since 'HDI for year' values wouldn't be significant to factor in when looking at suicide rates due to lack of data.
+Since there are 8.39% of NAs in the dataset, and the variable 'HDI for year' consists of 70% NAs, we have decided to completely ignore that variable in our analyses, since 'HDI for year' values wouldn't be significant to factor in when looking at suicide rates due to lack of data.
 
 > Removing NAs and creating refined 'suicideratesnew' dataset:
 
@@ -120,13 +120,12 @@ summary(suicideratesnew)
 
 > Plots
 
-In this first plot, we will look at how suicides may differ between generations, and within each one, the proportion of male versus female. The generations are as follows: Silent, Generation X, G.I. Generation,  Boomers, Generation Z and Millenials. 
+In this first plot, we will look at how suicides may differ between generations, globally between 1985-2016.
 
 ```{r}
 gen_suicides <- suicideratesnew %>% 
-  group_by(generation, sex) %>% 
+  group_by(generation) %>% 
   summarise("mean_suicides"=mean(suicides_no)) 
-
 DT::datatable(gen_suicides)
 ```
 
@@ -149,7 +148,6 @@ canada_suicides <- suicideratesnew %>%
   filter(country== 'Canada') %>% 
   group_by(year) %>% 
   summarise("sum_suicides"=sum(suicides_no))
-
 DT::datatable(canada_suicides)
 ```
 
@@ -183,6 +181,6 @@ suicideratesnew %>%
 
 Between 1985-2016, how did suicide rates differ between sexes and generations, and is there a significant correlation with the amount of GDP per capita for each country?
 
+> How?
+
 With our research question, we are interested in the suicide rates among different generations. Later, we will perform a linear regression analysis and plot the relevant variables (variables of interest) with a regression line after we come to a conclusion that there is a relationship between these variables. 
-
-
