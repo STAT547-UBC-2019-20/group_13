@@ -7,11 +7,12 @@ output:
   pdf_document: default
 ---
 
-```{r fake-load-libraries, eval=FALSE}
+```{r fake-load-libraries}
 library(tidyverse)
 library(magrittr)
 library(here)
 library(ggplot2)
+library(tidyr)
 ```
 
 ```{r allow errors, echo = FALSE}
@@ -87,8 +88,7 @@ Next, I will select for only the variables I am interested in, thus removing 'HD
 
 ```{r}
 suicideratesnew <- suiciderates %>% 
-  select(country, year, sex, age, suicides_no, population, suicides.100k.pop, country.year, 
-         gdp_for_year...., gdp_per_capita....,generation)
+  select(-HDI.for.year)
 ```
 
 ```{r}
