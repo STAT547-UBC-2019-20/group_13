@@ -25,6 +25,13 @@ We found the dataset at: https://www.kaggle.com/russellyates88/suicide-rates-ove
 # Task 2: Project Proposal & EDA
 
 #### 2.1: Introduce and describe your dataset
+=======
+# group_13
+:star: Farnaz and Racquelle :star: 
+
+## Suicide Rates Overview 1985 to 2016
+
+### Introduction
 
 This compiled dataset pulled from four other datasets linked by time and place was built to find signals correlated to increased suicide rates among different cohorts globally, across the socio-economic spectrum. The inspiration for this study was to prevent suicide. This data set includes 11 columns and provides information about country, year, sex, age group, count of suicides, population, suicide rate, country-year composite key, gdp_for_year, gdp_per_capita, generation (based on age grouping average).
 
@@ -38,6 +45,7 @@ World Bank. (2018). World development indicators: GDP (current US$) by country:1
 
 World Health Organization. (2018). Suicide prevention. Retrieved from http://www.who.int/mental_health/suicide-prevention/en/
 
+<<<<<<< HEAD
 #### 2.2: Load your dataset
 
 ```{r}
@@ -187,3 +195,6 @@ With our research question, we are interested in the suicide rates among differe
 
 
 
+### Data Description 
+
+Can be found [here](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/suiciderates.csv)
