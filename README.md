@@ -25,12 +25,12 @@ Our exploratory data analysis can be found in the link below:
 Our Rscripts to load, process, and conduct exploratory data analysis can be fould in the link below:
 
 
-  # Download data
+  1. Download data
   Rscript src/script_name.r --data_url=<url_to_raw_data_file>
   
-  # Wrangle/clean/process your data 
+  2. Wrangle/clean/process your data 
   Rscript src/script_name.r --argument_name=<argument> ... (etc)
   
-  # EDA script to export images
+  3. EDA script to export images
   Rscript src/script_name.r --argument_name=<argument> ... (etc)
   
