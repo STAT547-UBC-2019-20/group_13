@@ -21,6 +21,19 @@ The references for this study are:
 Our exploratory data analysis can be found [here](https://stat547-ubc-2019-20.github.io/group_13/docs/suicide-data.html). 
 
 ## Milestone 2
+Ensure the following packages are installed:
+
+````
+tidyr
+dplyr
+ggplot2
+here
+tidyverse
+docopt
+glue
+````
+
+
 Our Rscripts to load, process, and conduct exploratory data analysis can be fould in the links below:
 
   1. [load_data.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/load_data.R): This loads the raw data file into a CSV.
