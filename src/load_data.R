@@ -5,7 +5,7 @@
 
 doc <- "This script loads 'suicides'
 
-Usage: load_data.R --data_url=<url_to_raw_data_file>" 
+Usage: src/load_data.R --url_to_read=<url_to_raw_data_file>" 
   
 # load libraries and packagaes
 suppressMessages(library(tidyr))
@@ -20,10 +20,10 @@ suppressMessages(library(glue))
 
 opt <- docopt(doc)
 
-main <-function(url){
- suicides <- read.csv('data/suicides.csv', row.names=1)
+main <-function(url_to_read){
+ suicides <- read.csv(file = url_to_read, row.names=1)
  write.csv(suicides, here ("data", "suiciderates.csv"))
  
  print("Print of script successful")
 }
-main(opt$data_url)
+main(opt$url_to_read)

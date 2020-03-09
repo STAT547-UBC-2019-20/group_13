@@ -5,7 +5,7 @@
 
 doc <- "This script processes 'suicides'
 
-Usage: process_data.R --data_url=<url_to_raw_data_file>" 
+Usage: src/process_data.R --url_to_read=<url_to_raw_data_file>" 
 
 # load libraries and packagaes
 suppressMessages(library(tidyr))
@@ -17,33 +17,35 @@ suppressMessages(library(docopt))
 suppressMessages(library(glue))
 
 # parse/define command line arguments 
-
+#' Add together two numbers
+#'
+#' @param url_to_read: this link will take us to the csv file of our raw dataset
+#' @param y A number
+#' @return The sum of \code{x} and \code{y}
+#' @examples
+#' main(https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates.csv)
+#' 
 opt <- docopt(doc)
 
-#take in the filename to where the wrangled data should be saved as a command-line argument
+main <- function(url_to_read){
+  ## Load the csv
+  suicidesrates <- read.csv(url_to_read, sep=" ")
 
-# wrangle/clean/process your raw data and save a new version of data for later analysis
+# Finding out how many NAs
+sum(is.na(suicidesrates))/27820*12
 
-# finding out how many NAs
-sum(is.na(suiciderates))/27820*12
+sum(is.na(suicidesrates$HDI.for.year))/27820
 
-sum(is.na(suiciderates$HDI.for.year))/27820
-
-# getting rid of NAs, resulting in new dataset
-suicideratesnew <- suiciderates %>% 
+# Getting rid of NAs, resulting in new dataset
+suicideratesnew <- suicidesrates %>% 
   select(-HDI.for.year)
 
-DT::datatable(suicideratesnew)
-
-# confirmation of NAs removed 
+# Confirmation of NAs removed 
 sum(is.na(suicideratesnew))/27820*11
 
-#######
+write.csv(suicideratesnew, here ("data", "suiciderates_clean.csv"))
 
-main <-function(url){
-  suicides <- read.csv('data/suicides.csv', row.names=1)
-  write.csv(suicides, here ("data", "suiciderates.csv"))
-  
-  print("Print of script successful")
+print("Print of script successful")
 }
-main(opt$data_url)
+
+main(opt$url_to_read)
