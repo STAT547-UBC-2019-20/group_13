@@ -9,13 +9,13 @@ This compiled dataset pulled from four other datasets linked by time and place w
 
 The references for this study are:
 
-[United Nations Development Program. (2018). Human development index (HDI)](http://hdr.undp.org/en/indicators/137506)
+- [United Nations Development Program. (2018). Human development index (HDI)](http://hdr.undp.org/en/indicators/137506)
 
-[World Bank. (2018). World development indicators: GDP (current US$) by country:1985 to 2016](http://databank.worldbank.org/data/source/world-development-indicators#)
+- [World Bank. (2018). World development indicators: GDP (current US$) by country:1985 to 2016](http://databank.worldbank.org/data/source/world-development-indicators#)
 
-[Szamil. (2017). Suicide in the Twenty-First Century dataset](https://www.kaggle.com/szamil/suicide-in-the-twenty-first-century/notebook)
+- [Szamil. (2017). Suicide in the Twenty-First Century dataset](https://www.kaggle.com/szamil/suicide-in-the-twenty-first-century/notebook)
 
-[World Health Organization. (2018). Suicide prevention](http://www.who.int/mental_health/suicide-prevention/en/)
+- [World Health Organization. (2018). Suicide prevention](http://www.who.int/mental_health/suicide-prevention/en/)
 
 ## Milestone 1
 Our exploratory data analysis can be found [here](https://stat547-ubc-2019-20.github.io/group_13/docs/suicide-data.html). 
