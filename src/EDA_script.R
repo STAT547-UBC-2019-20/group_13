@@ -33,7 +33,7 @@ gen_suicides <- suicideratesnew %>%
   summarise("mean_suicides"=mean(suicides_no)) 
 DT::datatable(gen_suicides)
 
-suicideratesnew %>% 
+gen_suicides %>% 
 ggplot() +
   geom_col(aes(x=fct_reorder(generation, mean_suicides),y=mean_suicides, fill=generation)) +
   xlab("Generation") +
@@ -42,7 +42,7 @@ ggplot() +
   coord_flip() + 
   ggtitle("Average number of suicides globally across generations (1985-2016)") +
   theme(plot.title = element_text(hjust = 0.5))
-    ggsave('gen_suicides.png', width = 15, height = 10)
+    ggsave(filename= paste(path,'gen_suicides.png', sep= "/", width = 15, height = 10))
 
 
 # In the second plot, we look at how suicide rates have changed over the years, particularly in Canada, and see if there is a trend. 
@@ -52,7 +52,7 @@ canada_suicides <- suiciderates %>%
   summarise("sum_suicides"=sum(suicides_no))
 DT::datatable(canada_suicides)
 
-suicideratesnew %>%     
+canada_suicides %>%     
 ggplot() +
   geom_line(aes(x=year, y=sum_suicides)) +
   xlab("Year") +
@@ -60,7 +60,7 @@ ggplot() +
   theme_minimal() +
   ggtitle("Number of suicides in Canada (1985-2016)") +
   theme(plot.title = element_text(hjust = 0.5))
-    ggsave('canada_suicides.png', width = 15, height = 10)
+    ggsave(filename= paste(path,'canada_suicides.png', sep= "/", width = 15, height = 10))
 
 # Lastly, we will see the distribution of suicides between sexes within the entire dataset. suicideratesnew %>% 
 suicideratesnew %>% 
@@ -71,7 +71,7 @@ ggplot() +
   theme_minimal() +
   ggtitle("Distribution of suicides between sexes, globally (1985-2016)") +
   theme(plot.title = element_text(hjust = 0.5))
-    ggsave('test_plot.png', width = 15, height = 20)
+    ggsave(filename= paste(path,'suiciderates_sex.png', sep= "/", width = 15, height = 10))
 
 
 #######
