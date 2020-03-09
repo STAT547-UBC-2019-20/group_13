@@ -167,9 +167,9 @@ Lastly, we will see the distribution of suicides between sexes within the entire
 ```{r, fig.width = 15, fig.height = 20}
 suicideratesnew %>% 
   ggplot() +
-  geom_violin(aes(x=sex, y= suicides_no, fill=sex)) +
+  geom_violin(aes(x=sex, y= log10(suicides_no), fill=sex)) +
   xlab("Sex") +
-  ylab("Number of suicides") +
+  ylab("log10(Number of suicides)") +
   theme_minimal() +
   ggtitle("Distribution of suicides between sexes, globally (1985-2016)") +
   theme(plot.title = element_text(hjust = 0.5))
