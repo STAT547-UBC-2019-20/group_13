@@ -1,31 +1,3 @@
----
-title: 'Milestone 1 '
-author: 'Racquelle & Farnaz '
-date: "27/02/2020"
-output:
-  html_document: default
-  pdf_document: default
----
-
-```{r fake-load-libraries, eval=FALSE}
-library(tidyverse)
-library(magrittr)
-library(here)
-library(ggplot2)
-```
-
-```{r allow errors, echo = FALSE}
-knitr::opts_chunk$set(error = TRUE, warning = FALSE)
-```
-
-# Task 1: Choosing a dataset
-
-We found the dataset at: https://www.kaggle.com/russellyates88/suicide-rates-overview-1985-to-2016/data
-
-# Task 2: Project Proposal & EDA
-
-#### 2.1: Introduce and describe your dataset
-=======
 # group_13
 :star: Farnaz and Racquelle :star: 
 
@@ -45,156 +17,20 @@ World Bank. (2018). World development indicators: GDP (current US$) by country:1
 
 World Health Organization. (2018). Suicide prevention. Retrieved from http://www.who.int/mental_health/suicide-prevention/en/
 
-<<<<<<< HEAD
-#### 2.2: Load your dataset
-
-```{r}
-suiciderates<- read.table(("suiciderates.csv"),sep=" ")
-```
-
-Peek at dataset:
-```{r}
-DT::datatable(suiciderates)
-```
-
-#### 2.3: Explore your dataset
-
-> Exploratory Data Analysis of 'suiciderates'
-How many rows?
-```{r}
-nrow(suiciderates)
-```
-
-How many columns?
-```{r}
-ncol(suiciderates)
-```
-
-Summary of suiciderates dataset:
-```{r}
-summary(suiciderates)
-```
-
-> Figuring out NAs in 'suiciderates' dataset:
-Out of entire dataset (27820 observations of 12 variables), what % are NAs?
-```{r}
-sum(is.na(suiciderates))/27820*12
-```
-
-For column Human Development Index (HDI) for year, what % are NAs?
-```{r}
-sum(is.na(suiciderates$HDI.for.year))/27820
-```
-Since there are 8.39% of NAs in the dataset, and the variable 'HDI for year' consists of 70% NAs, we have decided to drop that variable in our analyses, since 'HDI for year' values wouldn't be significant to factor in when looking at suicide rates due to lack of data.
-
-> Removing NAs and creating refined 'suicideratesnew' dataset:
-Next, I will select for only the variables I am interested in, thus removing 'HDI for year'. 
-
-```{r}
-suicideratesnew <- suiciderates %>% 
-  select(country, year, sex, age, suicides_no, population, suicides.100k.pop, country.year, 
-         gdp_for_year...., gdp_per_capita....,generation)
-```
-
-```{r}
-DT::datatable(suicideratesnew)
-```
-
-I will now check to see how many NAs are still remaining in this dataset:
-```{r}
-sum(is.na(suicideratesnew))/27820*11
-```
-There are now 0% of NAs in the new dataset, further exemplifying that 'HDI for year' contained all the NAs.
-
-> Exploratory Data Analysis of 'suicideratesnew':
-How many rows?
-```{r}
-nrow(suicideratesnew)
-```
-
-How many columns?
-```{r}
-ncol(suicideratesnew)
-```
-
-Summary of suicideratesnew dataset:
-```{r}
-summary(suicideratesnew)
-```
-
-> Plots
-In this first plot, we will look at how suicides may differ between generations, and within each one, the proportion of male versus female. The generations are as follows: Silent, Generation X, G.I. Generation,  Boomers, Generation Z and Millenials. 
-
-```{r}
-gen_suicides <- suicideratesnew %>% 
-  group_by(generation, sex) %>% 
-  summarise("mean_suicides"=mean(suicides_no)) 
-DT::datatable(gen_suicides)
-```
-
-```{r, fig.width = 15, fig.height = 10}
-gen_suicides %>% 
-  ggplot() +
-  geom_col(aes(x=fct_reorder(generation, mean_suicides),y=mean_suicides, fill=generation)) +
-  xlab("Generation") +
-  ylab("Mean # of suicides") +
-  theme_minimal() +
-  coord_flip() + 
-  ggtitle("Average number of suicides globally across generations (1985-2016)") +
-  theme(plot.title = element_text(hjust = 0.5))
-```
-
-In the second plot, we look at how suicide rates have changed over the years particularly in Canada, and see if there is a trend. 
-
-```{r}
-canada_suicides <- suicideratesnew %>% 
-  filter(country== 'Canada') %>% 
-  group_by(year) %>% 
-  summarise("sum_suicides"=sum(suicides_no))
-DT::datatable(canada_suicides)
-```
-
-```{r, fig.width = 15, fig.height = 10}
-canada_suicides %>% 
-  ggplot() +
-  geom_line(aes(x=year, y=sum_suicides)) +
-  xlab("Year") +
-  ylab("Sum of suicides") +
-  theme_minimal() +
-  ggtitle("Number of suicides in Canada (1985-2016)") +
-  theme(plot.title = element_text(hjust = 0.5))
-```
-
-Lastly, we will see the distribution of suicides between sexes within the entire dataset. 
-
-```{r, fig.width = 15, fig.height = 20}
-suicideratesnew %>% 
-  ggplot() +
-  geom_violin(aes(x=sex, y= suicides_no, fill=sex)) +
-  xlab("Sex") +
-  ylab("Number of suicides") +
-  theme_minimal() +
-  ggtitle("Distribution of suicides between sexes, globally (1985-2016)") +
-  theme(plot.title = element_text(hjust = 0.5))
-```
-
-#### Research question & plan of action 
-
-> Research Question
-Between 1985-2016, how did suicide rates differ between sexes and generations, and is there a significant correlation with the amount of GDP per capita for each country?
-
-With our research question, we are interested in the suicide rates among different generations. Later, we will perform a linear regression analysis and plot the relevant variables (variables of interest) with a regression line after we come to a conclusion that there is a relationship between these variables. 
+## Milestone 1
+Our exploratory data analysis can be found in the link below:
 
 
+## Milestone 2
+Our Rscripts to load, process, and conduct exploratory data analysis can be fould in the link below:
 
 
-
-
-
-
-
-
-
-### Data Description 
-
-Can be found [here](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/suiciderates.csv)
+  # Download data
+  Rscript src/script_name.r --data_url=<url_to_raw_data_file>
+  
+  # Wrangle/clean/process your data 
+  Rscript src/script_name.r --argument_name=<argument> ... (etc)
+  
+  # EDA script to export images
+  Rscript src/script_name.r --argument_name=<argument> ... (etc)
+  
