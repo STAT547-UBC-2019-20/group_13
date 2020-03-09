@@ -9,7 +9,7 @@ This compiled dataset pulled from four other datasets linked by time and place w
 
 The references for this study are:
 
-[United Nations Development Program. (2018). Human development index (HDI)](Retrieved from http://hdr.undp.org/en/indicators/137506)
+[United Nations Development Program. (2018). Human development index (HDI)](http://hdr.undp.org/en/indicators/137506)
 
 [World Bank. (2018). World development indicators: GDP (current US$) by country:1985 to 2016](http://databank.worldbank.org/data/source/world-development-indicators#)
 
