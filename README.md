@@ -21,10 +21,14 @@ World Health Organization. (2018). Suicide prevention. Retrieved from http://www
 Our exploratory data analysis can be found in the link below:
 
 
+
+
 ## Milestone 2
 Our Rscripts to load, process, and conduct exploratory data analysis can be fould in the link below:
 
 
+  
+  
   1. Download data
   Rscript src/script_name.r --data_url=<url_to_raw_data_file>
   
