@@ -20,20 +20,21 @@ suppressMessages(library(glue))
 
 opt <- docopt(doc)
 
+main <- function(url_to_read){
+  ## Load the csv
+  suicidesratesnew <- read.csv(url_to_read, sep=" ")
 
 # EDA 
 nrow(suicideratesnew)
 ncol(suicideratesnew)
 summary(suicideratesnew)
 
-# plots
+# Plots
 # In this first plot, we will look at how suicides may differ between generations, globally between 1985-2016.
+
 gen_suicides <- suicideratesnew %>% 
   group_by(generation) %>% 
-  summarise("mean_suicides"=mean(suicides_no)) 
-DT::datatable(gen_suicides)
-
-gen_suicides %>% 
+  summarise("mean_suicides"=mean(suicides_no)) %>% 
 ggplot() +
   geom_col(aes(x=fct_reorder(generation, mean_suicides),y=mean_suicides, fill=generation)) +
   xlab("Generation") +
@@ -43,16 +44,15 @@ ggplot() +
   ggtitle("Average number of suicides globally across generations (1985-2016)") +
   theme(plot.title = element_text(hjust = 0.5))
     ggsave(filename= paste(path,'gen_suicides.png', sep= "/", width = 15, height = 10))
+    
+    gen_suicides
 
 
 # In the second plot, we look at how suicide rates have changed over the years, particularly in Canada, and see if there is a trend. 
-canada_suicides <- suiciderates %>% 
+canada_suicides <- suicideratesnew %>%     
   filter(country== 'Canada') %>% 
   group_by(year) %>% 
-  summarise("sum_suicides"=sum(suicides_no))
-DT::datatable(canada_suicides)
-
-canada_suicides %>%     
+  summarise("sum_suicides"=sum(suicides_no)) %>% 
 ggplot() +
   geom_line(aes(x=year, y=sum_suicides)) +
   xlab("Year") +
@@ -60,10 +60,12 @@ ggplot() +
   theme_minimal() +
   ggtitle("Number of suicides in Canada (1985-2016)") +
   theme(plot.title = element_text(hjust = 0.5))
-    ggsave(filename= paste(path,'canada_suicides.png', sep= "/", width = 15, height = 10))
+    ggsave(filename= paste(path,'canada_suicides.png', sep= "/", width = 15, height = 10)) 
+    
+    canada_suicides
 
 # Lastly, we will see the distribution of suicides between sexes within the entire dataset. suicideratesnew %>% 
-suicideratesnew %>% 
+sex_suicides <- suicideratesnew %>% 
 ggplot() +
   geom_violin(aes(x=sex, y= suicides_no, fill=sex)) +
   xlab("Sex") +
@@ -73,14 +75,15 @@ ggplot() +
   theme(plot.title = element_text(hjust = 0.5))
     ggsave(filename= paste(path,'suiciderates_sex.png', sep= "/", width = 15, height = 10))
 
+    sex_suicides
 
 #######
 
-
-main <-function(url){
-  suicides <- read.csv('data/suicides.csv', row.names=1)
-  write.csv(suicides, here ("data", "suiciderates.csv"))
+  write.csv(gen_suicides, here ("images", "gen_suicides.png"))
+    write.csv(canada_suicides, here ("images", "canada_suicides.png"))
+    write.csv(sex_suicides, here ("images", "sex_suicides.png"))
   
   print("Print of script successful")
 }
-main(opt$data_url)
+
+main(opt$url_to_read)
