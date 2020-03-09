@@ -23,11 +23,11 @@ Our exploratory data analysis can be found [here](https://stat547-ubc-2019-20.gi
 ## Milestone 2
 Our Rscripts to load, process, and conduct exploratory data analysis can be fould in the links below:
 
-  1. [load_data.R](https://stat547-ubc-2019-20.github.io/group_13/src/load_data.R): This loads the raw data file into a CSV.
+  1. [load_data.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/load_data.R): This loads the raw data file into a CSV.
   
-  2. [process_data.R](https://stat547-ubc-2019-20.github.io/group_13/src/process_data.R): Cleaned data via omitting NAs and   eliminating one of the columns. 
+  2. [process_data.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/process_data.R): Cleaned data via omitting NAs and   eliminating one of the columns. 
   
-  3. [EDA_script.R](https://stat547-ubc-2019-20.github.io/group_13/src/EDA_script.R): Performed exploratory data analysis of our cleaned dataset.
+  3. [EDA_script.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/EDA_script.R): Performed exploratory data analysis of our cleaned dataset.
   
  To replicate this analysis, clone this repository, navigate to the `src` folder in your terminal, and type in the commands below:
  
