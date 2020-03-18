@@ -44,11 +44,11 @@ glue
  To replicate this analysis, clone this repository, navigate to the `src` folder in your terminal, and type in the commands below:
  
 ````
-Rscript src/load_data.R -- url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates.csv"
+Rscript src/load_data.R --url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates.csv"
  
- Rscript src/process_data.R -- url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
+ Rscript src/process_data.R --url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
  
- Rscript src/EDA_script.R -- url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
+ Rscript src/EDA_script.R --url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
 
 ````
  
