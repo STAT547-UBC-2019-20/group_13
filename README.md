@@ -78,3 +78,4 @@ Rscript src/linear_regression.R --url_to_read="https://raw.githubusercontent.com
 
 Rscript src/knit.R --final_report="docs/final_report.Rmd" 
 ````
+**(3)** Usage for GNU Make
