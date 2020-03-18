@@ -53,96 +53,28 @@ Rscript src/load_data.R -- url_to_read="https://raw.githubusercontent.com/STAT54
 ````
  
  ## Milestone 3
- 
-# documentation for knitting Rmd to html and pdf
+ **(1)** Ensure the following packages are installed:
 
-doc <- "This script knits Rmd to html and pdf
-Usage: knit.R --final_report=<final_report>" 
+````
+tidyr
+dplyr
+ggplot2
+here
+tidyverse
+docopt
+glue
+````
 
-# load libraries and packagaes
+**(2)** Our Rscripts for linear regression of our dataset, and knitting final report. 
 
-suppressMessages(library(docopt))
-
-# parse/define command line arguments 
-opt <- docopt(doc)
-
-main <- function(url_to_read){
+ 1. [linear_regression.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/linear_regression.R)
   
-rmarkdown::render('docs/finalreport.Rmd', 
-                  c("html_document", "pdf_document"))
+  2. [knit.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/knit.R)
   
-  print("Print of script successful")
-}
+ To replicate this analysis, clone this repository, navigate to the `src` folder in your terminal, and type in the commands below:
 
-main(opt$final_report)
+````
+Rscript src/linear_regression.R --url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
 
-
-# documentation for linear regression and EDA
-
-doc <- "This script does linear regression of 'suicides'
-Usage: linear_regression.R --url_to_read=<url_to_clean_data_file>" 
-
-# load libraries and packagaes
-
-suppressMessages(library(tidyr))
-suppressMessages(library(dplyr))
-suppressMessages(library(here))
-suppressMessages(library(tidyverse))
-suppressMessages(library(docopt))
-suppressMessages(library(glue))
-suppressMessages(library(modelr))
-suppressMessages(library(broom))
-
-# parse/define command line arguments 
-
-opt <- docopt(doc)
-
-main <- function(url_to_read){
-  # Load the csv
-  suiciderates_clean <- read.csv(url_to_read, sep=" ")
-
-# best-fit line (age vs # suicides)
-  
-suicides_regression -> ggplot(suiciderates_clean, aes(year, suicides_no)) +
-    geom_point() +
-    geom_smooth(method="lm")
-ggsave(here ("images", "suicides_regression.png"), width = 15, height = 10)
-
-suicides_regression
-
-# linear models
-
-# year vs number of suicides
-
-suicides_year <- lm (suicides_no ~ year, data= suicidesrates_clean)
-coef(suicides_age_no)
-
-suicides_year
-
-# save to RDS file
-
-saveRDS(suicides_year, file = "linearregression.rds", file=url_to_read) 
-
-
-print("Print of script successful")
-}
-
-main(opt$url_to_read)
-
-# Usage for GNU Make
-
-Ensure you load all the packages below:
-
-suppressMessages(library(tidyr))
-suppressMessages(library(dplyr))
-suppressMessages(library(here))
-suppressMessages(library(tidyverse))
-suppressMessages(library(docopt))
-suppressMessages(library(glue))
-suppressMessages(library(modelr))
-suppressMessages(library(broom))
-
-
-
-
-  
+Rscript src/knit.R --final_report="docs/final_report.Rmd"
+````
