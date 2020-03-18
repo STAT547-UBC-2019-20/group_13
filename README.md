@@ -76,5 +76,5 @@ glue
 ````
 Rscript src/linear_regression.R --url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
 
-Rscript src/knit.R --final_report="docs/final_report.Rmd"
+Rscript src/knit.R --final_report="docs/final_report.Rmd" 
 ````
