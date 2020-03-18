@@ -67,9 +67,9 @@ glue
 
 **(2)** Our Rscripts for linear regression of our dataset, and knitting final report. 
 
- 1. [linear_regression.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/linear_regression.R)
+ 4. [linear_regression.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/linear_regression.R)
   
-  2. [knit.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/knit.R)
+ 5. [knit.R](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/knit.R)
   
  To replicate this analysis, clone this repository, navigate to the `src` folder in your terminal, and type in the commands below:
 
