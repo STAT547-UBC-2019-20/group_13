@@ -129,7 +129,18 @@ print("Print of script successful")
 
 main(opt$url_to_read)
 
+# Usage for GNU Make
 
+Ensure you load all the packages below:
+
+suppressMessages(library(tidyr))
+suppressMessages(library(dplyr))
+suppressMessages(library(here))
+suppressMessages(library(tidyverse))
+suppressMessages(library(docopt))
+suppressMessages(library(glue))
+suppressMessages(library(modelr))
+suppressMessages(library(broom))
 
 
 
