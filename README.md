@@ -44,12 +44,94 @@ glue
  To replicate this analysis, clone this repository, navigate to the `src` folder in your terminal, and type in the commands below:
  
 ````
-Rscript src/load_data.R --url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates.csv"
+Rscript src/load_data.R -- url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates.csv"
  
- Rscript src/process_data.R --url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
+ Rscript src/process_data.R -- url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
  
- Rscript src/EDA_script.R --url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
+ Rscript src/EDA_script.R -- url_to_read="https://raw.githubusercontent.com/STAT547-UBC-2019-20/data_sets/master/suiciderates_clean.csv"
 
 ````
  
+ ## Milestone 3
+ 
+# documentation for knitting Rmd to html and pdf
+
+doc <- "This script knits Rmd to html and pdf
+Usage: knit.R --final_report=<final_report>" 
+
+# load libraries and packagaes
+
+suppressMessages(library(docopt))
+
+# parse/define command line arguments 
+opt <- docopt(doc)
+
+main <- function(url_to_read){
+  
+rmarkdown::render('docs/finalreport.Rmd', 
+                  c("html_document", "pdf_document"))
+  
+  print("Print of script successful")
+}
+
+main(opt$final_report)
+
+
+# documentation for linear regression and EDA
+
+doc <- "This script does linear regression of 'suicides'
+Usage: linear_regression.R --url_to_read=<url_to_clean_data_file>" 
+
+# load libraries and packagaes
+
+suppressMessages(library(tidyr))
+suppressMessages(library(dplyr))
+suppressMessages(library(here))
+suppressMessages(library(tidyverse))
+suppressMessages(library(docopt))
+suppressMessages(library(glue))
+suppressMessages(library(modelr))
+suppressMessages(library(broom))
+
+# parse/define command line arguments 
+
+opt <- docopt(doc)
+
+main <- function(url_to_read){
+  # Load the csv
+  suiciderates_clean <- read.csv(url_to_read, sep=" ")
+
+# best-fit line (age vs # suicides)
+  
+suicides_regression -> ggplot(suiciderates_clean, aes(year, suicides_no)) +
+    geom_point() +
+    geom_smooth(method="lm")
+ggsave(here ("images", "suicides_regression.png"), width = 15, height = 10)
+
+suicides_regression
+
+# linear models
+
+# year vs number of suicides
+
+suicides_year <- lm (suicides_no ~ year, data= suicidesrates_clean)
+coef(suicides_age_no)
+
+suicides_year
+
+# save to RDS file
+
+saveRDS(suicides_year, file = "linearregression.rds", file=url_to_read) 
+
+
+print("Print of script successful")
+}
+
+main(opt$url_to_read)
+
+
+
+
+
+
   
