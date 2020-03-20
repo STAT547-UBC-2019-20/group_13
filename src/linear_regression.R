@@ -24,29 +24,28 @@ opt <- docopt(doc)
 
 main <- function(url_to_read){
   # Load the csv
-  suiciderates_clean <- read.csv(url_to_read, sep=" ")
+  suiciderates_clean <- read.csv(url_to_read, sep=",")
 
 # best-fit line (age vs # suicides)
   
-suicides_regression -> ggplot(suiciderates_clean, aes(year, suicides_no)) +
+suicides_regression <- ggplot(suiciderates_clean, aes(`gdp_for_year....`, suicides_no)) +
     geom_point() +
     geom_smooth(method="lm")
-ggsave(here ("images", "suicides_regression.png"), width = 15, height = 10)
+
+ggsave(suicides_regression,here ("images", "suicides_regression.png"), width = 15, height = 10)
 
 suicides_regression
 
-# linear models
+# linear models: ......
 
-# year vs number of suicides
+suicides_gdp <- lm (suicides_no ~ `gdp_for_year....`, data= suiciderates_clean)
 
-suicides_year <- lm (suicides_no ~ year, data= suicidesrates_clean)
-coef(suicides_age_no)
+broom::tidy(suicides_gdp)
 
-suicides_year
 
 # save to RDS file
 
-saveRDS(suicides_year, file = "linearregression.rds", file=url_to_read) 
+saveRDS(suicides_gdp, file = here("data", "linearregression.rds")) 
 
 
 print("Print of script successful")
