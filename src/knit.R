@@ -14,9 +14,8 @@ suppressMessages(library(docopt))
 # parse/define command line arguments 
 opt <- docopt(doc)
 
-main <- function(url_to_read){
-  
-rmarkdown::render('docs/finalreport.Rmd', 
+main <- function(final_report){
+  rmarkdown::render(final_report, 
                   c("html_document", "pdf_document"))
   
   print("Print of script successful")

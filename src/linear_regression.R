@@ -34,12 +34,13 @@ main <- function(url_to_read){
   # linear models: ......
   suicides_gdp <- lm (suicides_no ~ `gdp_for_year....`, data= suiciderates_clean)
 
-  broom::tidy(suicides_gdp)
+  suicides_regression_tidy <- broom::tidy(suicides_gdp)
 
 
 # save to RDS file
 
   saveRDS(suicides_gdp, file = here("data", "linearregression.rds")) 
+  saveRDS(suicides_regression_tidy, file = here("data", "linearregression_clean.rds"))
 
  message("Print of script successful")
 }
