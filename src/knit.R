@@ -5,7 +5,7 @@
 
 doc <- "This script knits Rmd to html and pdf
 
-Usage: knit.R --final_report=<final_report>" 
+Usage: knit.R --final_report=<docs/name_of_final_report>" 
 
 # load libraries and packagaes
 
