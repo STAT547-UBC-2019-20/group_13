@@ -82,8 +82,18 @@ Rscript src/knit.R --final_report="docs/final_report.Rmd"
 
 ## Milestone 4
 
-![](images/dashboard_1-1.png)
+**Dashboard Proposal**
 
-![](images/dashboard_2-1.png)
+# Dashboard Description
 
-*Icons were found from [here](https://www.flaticon.com/)
+In this app you can find information on how socio-economic factors play an important role in the number of suicide rates in different countries and how they change between 1985 to 2016. There are 4 plots that show how suicide rates change according to changes in socio-economic factors. The bar chart provides information on how Generation can affect the number of suicides. Another bar chart provides information on how suicide rates change according to sex. The line graph is very informative in interpreting how suicide numbers change across different years (between year 1985-2016). Our linear regression is looking at how number of suicides correlate to GDP for year.  
+
+# Usage Scenario
+
+David is a sociologist who is interested in the assessment and prevention of suicide as part of his major. He is wondering how different socio-economic variables can affect suicide rates. He is also curious to know if those socio-economic factors intersect together. One day he is searching on the web and he finds our app that provides information on how socio-economic variables interact with the number of suicides. 
+
+# App Sketch
+
+![](images/dashboard_1.png)
+
+![](images/dashboard_2.png)
