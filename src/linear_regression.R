@@ -28,9 +28,14 @@ main <- function(url_to_read){
   # best-fit line (age vs # suicides)
   suicides_regression <- ggplot(suiciderates_clean, aes(`gdp_for_year....`, suicides_no)) +
     geom_point() +
-    geom_smooth(method="lm")
+    geom_smooth(method="lm") +
+    theme_minimal(20) +
+    xlab("GDP for year ($)") +
+    ylab("Number of Suicides") +
+    scale_x_continuous(labels = scales::comma_format())
   ggsave(here("images", "suicides_regression.png"), width = 15, height = 10, device="png")
   suicides_regression
+
   # linear models: ......
   suicides_gdp <- lm (suicides_no ~ `gdp_for_year....`, data= suiciderates_clean)
 
