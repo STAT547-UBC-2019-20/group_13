@@ -85,3 +85,5 @@ Rscript src/knit.R --final_report="docs/final_report.Rmd"
 ![](images/dashboard_1-1.png)
 
 ![](images/dashboard_2-1.png)
+
+*Icons were found from [here](https://www.flaticon.com/)
