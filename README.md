@@ -94,6 +94,8 @@ David is a sociologist who is interested in the assessment and prevention of sui
 
 # App Sketch
 
-![](images/dashboard_1.png)
+Below please find our dashboard sketches. Icons were taken from [FLATICON](https://www.flaticon.com/):
 
-![](images/dashboard_2.png)
+![](images/dashboard_1-1.png)
+
+![](images/dashboard_2-1.png)
