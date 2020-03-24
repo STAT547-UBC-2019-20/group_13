@@ -82,6 +82,6 @@ Rscript src/knit.R --final_report="docs/final_report.Rmd"
 
 ## Milestone 4
 
-![](images/dashboard_1.png)
+![](images/dashboard_1-1.png)
 
-![](images/dashboard_2.png)
+![](images/dashboard_2-1.png)
