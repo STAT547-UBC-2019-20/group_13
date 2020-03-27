@@ -85,7 +85,7 @@ xaxis <- dccDropdown(
       list(label=x, value=x)
     }),
   
-  # Assign a default value for the dropdown
+  # Assign a default value for the dropdown 
   value = 'mpg'
 )
 
