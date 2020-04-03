@@ -102,4 +102,6 @@ Below please find our dashboard sketches. Icons were taken from [FLATICON](https
 
 ## Milestone 5
 
-Please click this [link](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/app.R) to view the Rscript for our draft dashboard!
+## Milestone 6
+
+Please click this [link](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/app.R) to view the Rscript for our final dashboard app!
