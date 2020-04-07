@@ -32,7 +32,7 @@ main <- function(url_to_read){
     theme_minimal(20) +
     xlab("GDP for year ($)") +
     ylab("Number of Suicides") +
-    scale_x_continuous(labels = scales::comma_format())
+    scale_x_continuous(labels = scales::comma_format()) +
   ggsave(here("images", "suicides_regression.png"), width = 15, height = 10, device="png")
   suicides_regression
 

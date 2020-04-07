@@ -79,3 +79,27 @@ Rscript src/linear_regression.R --url_to_read="https://raw.githubusercontent.com
 Rscript src/knit.R --final_report="docs/final_report.Rmd" 
 ````
 **(3)** Usage for GNU Make
+
+## Milestone 4
+
+**Dashboard Proposal**
+
+# Dashboard Description
+
+In this app you can find information on how socio-economic factors play an important role in the number of suicide rates in different countries and how they change between 1985 to 2016. There are 4 plots that show how suicide rates change according to changes in socio-economic factors. The bar chart provides information on how Generation can affect the number of suicides. Another bar chart provides information on how suicide rates change according to sex. The line graph is very informative in interpreting how suicide numbers change across different years (between year 1985-2016). Our linear regression is looking at how number of suicides correlate to GDP for year. This dashboard has a dropdown menu that will essentially allow the user to choose another variable rather than what is shown on the plots. As an example the user can change country instead of generation in the fist plot and see how that is related to number of suicides. 
+
+# Usage Scenario
+
+David is a sociologist who is interested in the assessment and prevention of suicide as part of his major. He is wondering how different socio-economic variables can affect suicide rates. He is also curious to know if those socio-economic factors intersect together. One day he is searching on the web and he finds our app that provides information on how socio-economic variables interact with the number of suicides.
+
+# App Sketch
+
+Below please find our dashboard sketches. Icons were taken from [FLATICON](https://www.flaticon.com/):
+
+![](images/dashboard_1-1.png)
+
+![](images/dashboard_2-1.png)
+
+## Milestone 5
+
+Please click this [link](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/app.R) to view the Rscript for our draft dashboard!
