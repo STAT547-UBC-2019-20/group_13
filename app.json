@@ -1,0 +1,9 @@
+{
+  "name": "Suicides in North America between 1985-2016",
+  "description": "Does socioeconomic factors play a role in suicides?",
+  "keywords": [
+    "heroku",
+    "R deployment",
+    "Dash R"
+],
+}
