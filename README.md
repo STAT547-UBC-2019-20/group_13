@@ -104,4 +104,5 @@ Below please find our dashboard sketches. Icons were taken from [FLATICON](https
 
 ## Milestone 6
 
-Please click this [link](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/src/app.R) to view the Rscript for our final dashboard app!
+Please click this [link](https://github.com/STAT547-UBC-2019-20/group_13/blob/master/app.R) to view the Rscript for our final dashboard app and [here](https://farrac-milestone6.herokuapp.com/) for its deployment on heroku!
+
